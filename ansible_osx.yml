@@ -37,6 +37,7 @@
         - docker
         # - dropbox
         # - figma
+        - firefox
         - google-chrome
         # - google-cloud-sdk
         - iterm2
