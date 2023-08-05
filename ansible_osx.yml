@@ -22,6 +22,7 @@
           homebrew/cask-versions,
           thoughtbot/formulae,
           weaveworks/tap,
+          hashicorp/tap,
         ]
 
     - name: Install core packages via brew casks
@@ -84,7 +85,8 @@
           # 'readline',
           # 'redis',
           # 'sqlite3',
-          starship,
+          'starship',
+          'terraform',
           # 'tmux',
           # 'unixodbc',
           # 'unzip',
