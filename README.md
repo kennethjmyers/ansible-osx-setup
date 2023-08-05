@@ -16,6 +16,12 @@ Some preliminary steps and information:
 
     This is described in [this post](https://github.com/geerlingguy/ansible-role-homebrew/issues/45). If still having trouble then try upgrading ansible.
 
+4. If you manually make changes to ~/.zshrc and then later run `bin/apply` you will overwrite those changes with the template in this project. Make sure you update the template with any changes you make locally.
+5. You will need to manually adjust 2 things in iterm settings (`cmd+,`):
+    1. You need to navigate to `Profiles > Text` and enable "Use built-in powerline glyphs" in order to use special characters in starship like the git branch symbol.
+    2. The Dracula theme will be downloaded to the themes folder but you will need to import and activate this in `Profiles > Colors > Color Presets`.
+6. You can install additional environments via `asdf` and rerun the ansible playbook. The environment will not be lost on rerun.
+
 There's a simple shell script in `bin/bootstrap` which will perform the initial steps of:
 
 1. Installing Xcode

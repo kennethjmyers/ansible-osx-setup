@@ -70,7 +70,7 @@
           # 'heroku',
           # 'htop',
           # 'imagemagick@6',
-          # 'kubectx',
+          'kubectx',
           'kubernetes-cli',
           'kubernetes-helm',
           # 'libtool',
@@ -94,6 +94,7 @@
           # 'yarn',
           # 'zlib',
           'zsh',
+          #'zsh-autosuggestions',
         ]
         state: present
         update_homebrew: yes
@@ -118,6 +119,11 @@
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
       args:
         creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
+    
+    - name: Install zsh-autosuggestions
+      ansible.builtin.git:
+        repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+        dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
 
     - name: Set ZSH as the default shell
       shell: chsh -s $(which zsh) {{ lookup('env', 'USER') }}
@@ -127,6 +133,13 @@
       template:
         src: templates/.zshrc.j2
         dest: /Users/{{ lookup('env', 'USER') }}/.zshrc
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+    - name: "Create a default vimrc configuration"
+      template:
+        src: templates/.vimrc.j2
+        dest: /Users/{{ lookup('env', 'USER') }}/.vimrc
         owner: "{{ lookup('env', 'USER') }}"
         force: yes
 
@@ -195,6 +208,8 @@
     - name: "Install Default Python"
       shell: |
         source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+        asdf install python 3.7.16
+        asdf install python 3.9.16
         asdf install python 3.11.4
         asdf global python 3.11.4
         pip3 install ansible
@@ -241,5 +256,9 @@
         
     # - name: re-generate bins now we've installed some yarn packages
     #   shell: asdf reshim nodejs
-        
 
+    # You will need to manually import this into iterm2, couldn't find an easy way script it
+    - name: Install Dracula Theme
+      ansible.builtin.git:
+        repo: 'https://github.com/dracula/iterm.git'
+        dest: "./themes/dracula"

@@ -18,7 +18,13 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
 # ZSH setup
 export ZSH=$HOME/.oh-my-zsh
 ## ZSH_THEME="" # "robbyrussell" # using starship instead
-plugins=(git kubectl)  # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
+plugins=(
+  git 
+  kubectl
+  zsh-autosuggestions
+)  
+# git plugin: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+# kubectl plugin: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 ZSH_DISABLE_COMPFIX=true
 

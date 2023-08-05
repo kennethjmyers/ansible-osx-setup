@@ -1,2 +1,6 @@
 *.retry
 .DS_Store
+get-pip.py
+
+themes/*
+!themes/.gitkeep
