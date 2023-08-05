@@ -4,6 +4,18 @@ This repository contains an Ansible configuration for setting up a Mac from scra
 
 ## Getting Started
 
+Some preliminary steps and information: 
+
+1. **UPDATE THE MAC FIRST BEFORE RUNNING** I ran into a bunch of issues with this by trying to do that after already a few attemps at running this. 
+2. If you somehow stumbled upon this fork of this repo, make sure you have downloaded Xcode at least once before from the app store or you might get an error telling you that you don't have permissions for that during the `mas install` part.
+3. If you get an error during `TASK [geerlingguy.mac.homebrew : Ensure Homebrew is installed.]` it might be because you have not signed the xcode license. Do the following:
+  
+    ```sh
+    sudo xcodebuild -license
+    ```
+
+    This is described in [this post](https://github.com/geerlingguy/ansible-role-homebrew/issues/45). If still having trouble then try upgrading ansible.
+
 There's a simple shell script in `bin/bootstrap` which will perform the initial steps of:
 
 1. Installing Xcode
