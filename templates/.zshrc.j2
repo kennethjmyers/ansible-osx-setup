@@ -43,6 +43,9 @@ if [ -f ~/.zshrc.personal.after ]; then . ~/.zshrc.personal.after; fi
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+# for python venv activations
+alias activate='source ./venv/bin/activate'
+
 ####################
 # MUST BE LAST - runs starship theme
 # saw good reviews on this, seems more popular than Pure, read it was slower than Pure
