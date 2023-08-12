@@ -68,6 +68,7 @@
           # 'fzf',
           # 'gnu-time',
           # 'gpg',
+          'graphviz',
           # 'heroku',
           # 'htop',
           # 'imagemagick@6',
@@ -218,6 +219,7 @@
       shell: |
         source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
         asdf install python 3.7.16
+        asdf install python 3.8.15
         asdf install python 3.9.16
         asdf install python 3.11.4
         asdf global python 3.11.4
@@ -240,6 +242,9 @@
         bash /Users/{{ lookup('env', 'USER') }}/.asdf/plugins/nodejs/bin/import-release-team-keyring
         asdf install nodejs 20.5.0
         asdf global nodejs 20.5.0
+        npm install -g typescript
+        npm install -g ts-node
+        npm install -g tslib @types/node
 
     # - name: "Install default erlang"
     #   shell: |
